@@ -18,8 +18,6 @@ app.post("/api/weather", (req, res) => {
     "&units=" +
     units;
 
-    console.log(query);
-
   https
     .get(url, function (response) {
       if (response.statusCode === 200) {
@@ -39,7 +37,6 @@ app.post("/api/weather", (req, res) => {
           const responseData = {
             temp,
             weatherDescription,
-            icon,
             imageURL
           }
           

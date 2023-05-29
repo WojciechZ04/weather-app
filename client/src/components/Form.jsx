@@ -20,6 +20,8 @@ const Form = () => {
 	  .catch(error => {
 		console.error(error);
 	  });
+
+	  setCity("");
   };
 
   const handleInputChange = event => {
