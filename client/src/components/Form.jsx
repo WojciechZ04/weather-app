@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Form = () => {
   const [city, setCity] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
 
   const handleButtonClick = () => {
 	fetch('http://localhost:8000/api/weather', {
@@ -14,8 +15,7 @@ const Form = () => {
 	  .then(response => response.json())
 	  .then(data => {
 		const { responseData } = data;
-		const { temp, weatherDescription, imageURL } = responseData;
-		console.log(temp, weatherDescription, imageURL);
+		setWeatherData(responseData);
 	  })
 	  .catch(error => {
 		console.error(error);
@@ -30,7 +30,18 @@ const Form = () => {
     <div>
       <input type="text" value={city} onChange={handleInputChange} />
       <button onClick={handleButtonClick}>Submit</button>
+
+	  {weatherData ? (
+        <>
+          <div>Temperature: {weatherData.temp}°C</div>
+          <div>Weather: {weatherData.weatherDescription}</div>
+          <img src={weatherData.imageURL} alt="Weather Icon" />
+        </>
+      ) : (
+        <div></div>
+      )}
     </div>
+
   );
 };
 

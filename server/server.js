@@ -44,8 +44,6 @@ app.post("/api/weather", (req, res) => {
           }
           
           res.json({responseData});
-
-          console.log(temp, weatherDescription, imageURL);
         });
       } else {
         console.log(
