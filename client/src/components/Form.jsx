@@ -22,6 +22,7 @@ const Form = () => {
         console.error(error);
       });
 
+      
     setCity("");
   };
 
@@ -29,6 +30,7 @@ const Form = () => {
     setCity(event.target.value);
   };
 
+  
   return (
     <Container sx={{ py: "50px" }}>
       <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -66,7 +68,13 @@ const Form = () => {
             }}
           >
             <div>Temperature: {weatherData.temp}°C</div>
+            <div>Time: {weatherData.time}</div>
             <div>Weather: {weatherData.weatherDescription}</div>
+            <div>Perceptible temperature: {weatherData.feelsTemp}°C</div>
+            <div>Wind speed: {weatherData.windSpeed} meter/sec</div>
+            <div>Sunrise: {weatherData.sunrise}</div>
+            <div>Sunset: {weatherData.sunset}</div>
+            <div>Timezone: {weatherData.timezone}</div>
             <img src={weatherData.imageURL} alt="Weather Icon" />
           </Container>
         </>
