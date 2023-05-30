@@ -1,49 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { TextField, Container, Button, Grid } from "@mui/material";
 
 const Form = () => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
 
   const handleButtonClick = () => {
-	fetch('http://localhost:8000/api/weather', {
-	  method: 'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify({ city }),
-	})
-	  .then(response => response.json())
-	  .then(data => {
-		const { responseData } = data;
-		setWeatherData(responseData);
-	  })
-	  .catch(error => {
-		console.error(error);
-	  });
+    fetch("http://localhost:8000/api/weather", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ city }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const { responseData } = data;
+        setWeatherData(responseData);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
-	  setCity("");
+    setCity("");
   };
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setCity(event.target.value);
   };
 
   return (
-    <div>
-      <input type="text" value={city} onChange={handleInputChange} />
-      <button onClick={handleButtonClick}>Submit</button>
+    <Container sx={{ py: "50px" }}>
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid item sx={{ width: "100%" }}>
+          <TextField
+            id="outlined-basic"
+            label="City Name"
+            variant="outlined"
+            type="text"
+            value={city}
+            onChange={handleInputChange}
+            fullWidth
+          />
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            onClick={handleButtonClick}
+            style={{ height: "50px", width: "150px" }}
+          >
+            Check
+          </Button>
+        </Grid>
+      </Grid>
 
-	  {weatherData ? (
+      {weatherData ? (
         <>
-          <div>Temperature: {weatherData.temp}°C</div>
-          <div>Weather: {weatherData.weatherDescription}</div>
-          <img src={weatherData.imageURL} alt="Weather Icon" />
+          <Container
+            sx={{ py: "50px" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              height: "100vh",
+            }}
+          >
+            <div>Temperature: {weatherData.temp}°C</div>
+            <div>Weather: {weatherData.weatherDescription}</div>
+            <img src={weatherData.imageURL} alt="Weather Icon" />
+          </Container>
         </>
       ) : (
         <div></div>
       )}
-    </div>
-
+    </Container>
   );
 };
 
