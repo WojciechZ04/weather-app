@@ -18,8 +18,6 @@ app.post("/api/weather", (req, res) => {
     "&units=" +
     units;
 
-  
-
   https
     .get(url, function (response) {
       if (response.statusCode === 200) {
@@ -38,10 +36,11 @@ app.post("/api/weather", (req, res) => {
           const icon = weatherData.weather[0].icon;
           const feelsTemp = weatherData.main.feels_like;
           const windSpeed = weatherData.wind.speed;
-          const sunrise = new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-          const sunset = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          const pressure = weatherData.main.pressure;
+          const sunrise = new Date((weatherData.sys.sunrise + weatherData.timezone - 7200) * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          const sunset = new Date((weatherData.sys.sunset + weatherData.timezone - 7200) * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
           const imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
+    
           const offsetHours = Math.abs(weatherData.timezone) / 3600; // Convert offset to hours
           const offsetSign = weatherData.timezone >= 0 ? '+' : '-'; // Determine the sign of the offset
           const timezone = `UTC${offsetSign}${offsetHours}`;
@@ -57,6 +56,7 @@ app.post("/api/weather", (req, res) => {
             sunrise,
             sunset,
             timezone,
+            pressure,
             time
           }
           
