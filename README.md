@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+=============== English ============
+What is this project about?
+This is big project called Weather App. Its funcionality is to display some basic 
+information about weather conditions, time and more, afrer specifying the city name.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How does it work?
+Firstly you need to type in what city you want to check weather. By clicking the button,
+the input is send to backend server which is responsible of getting necessary information
+from OpenWeather. Then data is modified and converted to object which is send back to
+frontend and displayed. 
 
-## Available Scripts
+What skills are used in the project?
+Currently there is used knowledge about Express.js, React and MUI components, use real-time API,
+CSS styles, responsive websites and communication between front and backend.
 
-In the project directory, you can run:
 
-### `npm start`
+Is the project complete?
+The project is constantly being developed both on the frontend and backend. I want to make
+website more attractive, add some animations. There is also idea of changing style depending
+of weather conditions and/or time of the day (dark theme in night for example). Also I want to 
+develop the project so it will be available in Polish language. I want to keep everything responsive, 
+with clean project tree and reusing as much code as I can.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+=============== Polski ============
+O czym jest projekt?
+Tematem tego projektu jest aplikacja pogodowa. Jej zadaniem jest wyświetlenie kilku podstawowych 
+informacji o pogodzie, godzinie itd., po określeniu nazwy miasta.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Jak to działa? 
+W pierwszej kolejności należy wpisać nazwę miasta w którym chce się sprawdzić pogodę. Po kliknięciu
+przycisku, wpisana zawartość zostanie wysłana do backendu, którego zadaniem jest zebranie potrzebnych
+informacji ze strony OpenWeather. Dane są modyfikowane oraz skonwertowane do obiektu, który 
+następnie jest wysyłany do frontendu, gdzie wyświetlana jest zawartość.
 
-### `npm test`
+Jakie umiejętności zostały wykorzystane w tym projekcie?
+Aktualnie wykorzystano wiedzę z express.js/node.js, komponentów React and MUI, wykorzystania API 
+czasu rzeczywistego, stylów CSS, konstruowaniu responsywnych stron oraz komunikacji między 
+front- i backendem.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Czy projekt jest skończony?
+Projekt jest cały czas rozwijany zarówno na front- jak i backendzie. Celem jest poprawienie aplikacji
+ze strony wizualnej, dodanie animacji. W planach jest również dynamiczne zmienianie stylu aplikacji
+w zależności od warunków pogodowych i/lub czasu (np. ciemny motyw kiedy jest noc). Dodatkowo zamierzam
+dodać stronę w języku polskim z możliwością zmiany języka przez użytkownika. Cały projekt powinien być 
+ostatecznie w pełni responsywny, przy zachowaniu porządku w plikach oraz ograniczeniu powtarzania się
+kodu.
