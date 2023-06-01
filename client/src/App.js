@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "./components/Header";
-import Form from "./components/Form";
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Form from "./pages/Form";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Form />
-    </div>
+    <Router>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Form />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+      </Routes>      
+      <Footer/>
+    </Router>
   );
 }
 

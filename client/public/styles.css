@@ -1,3 +1,35 @@
 body {
 	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+	background-color: dodgerblue;
+	border-radius: 1rem;
+	border: 1rem;
+	text-align: center;
+	display: flex;
+  	justify-content: center; /* Centers the content horizontally */
+  	align-items: center; /* Centers the content vertically */
+	font-family: 'Open Sans', sans-serif;
+	font-size: 24px;
+	color: aliceblue;
+	font-weight: 600;
+}
+
+.basicInfo {
+	font-size: 40px;
+}
+
+.temp {
+	font-size: 72px;
+}
+
+.icon {
+	height: 10rem;
+}
+
+.content {
+	padding: 20px;
+	vertical-align: middle;
 }
