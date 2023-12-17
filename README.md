@@ -1,4 +1,5 @@
-=============== English ============
+## =============== English ============
+
 What is this project about?
 This is big project called Weather App. Its funcionality is to display some basic 
 information about weather conditions, time and more, afrer specifying the city name.
@@ -21,7 +22,8 @@ of weather conditions and/or time of the day (dark theme in night for example). 
 develop the project so it will be available in Polish language. I want to keep everything responsive, 
 with clean project tree and reusing as much code as I can.  
 
-=============== Polski ============
+## =============== Polski ============
+
 O czym jest projekt?
 Tematem tego projektu jest aplikacja pogodowa. Jej zadaniem jest wyświetlenie kilku podstawowych 
 informacji o pogodzie, godzinie itd., po określeniu nazwy miasta.
