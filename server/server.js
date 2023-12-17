@@ -32,6 +32,7 @@ app.post("/api/weather", (req, res) => {
           const currentTime = (now.getUTCHours() - 1) * 3600 + now.getUTCMinutes() * 60;
           const weatherData = JSON.parse(data);
           const temp = weatherData.main.temp;
+          const weatherMainDescription = weatherData.weather[0].main;
           const weatherDescription = weatherData.weather[0].description;
           const icon = weatherData.weather[0].icon;
           const feelsTemp = weatherData.main.feels_like;
@@ -48,6 +49,7 @@ app.post("/api/weather", (req, res) => {
 
           const responseData = {
             temp,
+            weatherMainDescription,
             weatherDescription,
             imageURL,
             feelsTemp,
