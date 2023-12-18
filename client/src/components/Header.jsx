@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 
-const pages = ["About", "Contact"];
+const pages = ["About", "More projects"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
