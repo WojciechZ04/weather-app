@@ -27,7 +27,7 @@ const Form = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   const handleButtonClick = () => {
-    fetch("http://localhost:8000/api/weather", {
+    fetch("https://weather-app-api-my69.onrender.com/api/weather", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
