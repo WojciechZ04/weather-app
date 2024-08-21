@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { Container, Grid } from "@mui/material";
-import AirIcon from "@mui/icons-material/Air";
-import ThermostatIcon from "@mui/icons-material/Thermostat";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import PlaceIcon from "@mui/icons-material/Place";
-import WbTwilightIcon from "@mui/icons-material/WbTwilight";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { Container, CircularProgress } from "@mui/material";
 
+import WeatherDetails from "./WeatherDetails";
 import SearchBar from "./SearchBar";
-
 import imageMap from "../../assets/imageMap";
+import "./Home.css";
 
 const Home = () => {
   const [city, setCity] = useState("");
   const [name, setName] = useState("");
-  const [weatherBackground, setWeatherBackground] = useState("default");
+  const [weatherBackground, setWeatherBackground] = useState("Default");
   const [weatherData, setWeatherData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleButtonClick = () => {
+    setIsLoading(true);
+    setWeatherData(null);
+    setWeatherBackground("Default");
+    setError("");
+
     fetch("http://localhost:8000/api/weather", {
       method: "POST",
       headers: {
@@ -26,16 +27,27 @@ const Home = () => {
       },
       body: JSON.stringify({ city }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("No city found");
+          } else {
+            throw new Error("An error occurred");
+          }
+        }
+        return response.json();
+      })
       .then((data) => {
         const { responseData } = data;
+        setIsLoading(false);
         setWeatherData(responseData);
         setName(city);
         setWeatherBackground(responseData.weatherMainDescription);
         console.log(responseData.weatherMainDescription);
       })
       .catch((error) => {
-        console.error(error);
+        setIsLoading(false);
+        setError(error.message);
       });
 
     setCity("");
@@ -66,74 +78,28 @@ const Home = () => {
           onSubmit={handleButtonClick}
         />
 
-        {weatherData ? (
-          <>
-            <Container
-              sx={{ py: "50px" }}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                height: "100vh",
-              }}
-            >
-              <Grid className="container" container spacing={2} sx={{ m: 0 }}>
-                <Grid className="content" item xs={6}>
-                  <div className="basicInfo">
-                    {name} <PlaceIcon sx={{ fontSize: "40px" }} />
-                  </div>
-                </Grid>
-                <Grid className="content" item xs={6}>
-                  <div className="basicInfo">
-                    <AccessTimeIcon sx={{ fontSize: "40px" }} />{" "}
-                    {weatherData.time} {weatherData.timezone}
-                  </div>
-                </Grid>
-                <Grid className="content" item xs={6}>
-                  <div className="temp">
-                    <ThermostatIcon sx={{ fontSize: "70px" }} />{" "}
-                    {weatherData.temp}°C
-                  </div>
-                </Grid>
-                <Grid className="content" item xs={6}>
-                  <img
-                    className="icon"
-                    src={weatherData.imageURL}
-                    alt="Weather Icon"
-                  />
-                  <div>{weatherData.weatherDescription}</div>
-                </Grid>
-                <Grid className="content" item xs={2}>
-                  <div>Perceptible temperature: {weatherData.feelsTemp}°C</div>
-                </Grid>
-                <Grid className="content" item xs={2}>
-                  <div>
-                    <AirIcon /> {weatherData.windSpeed} meter/sec
-                  </div>
-                </Grid>
-                <Grid className="content" item xs={2}>
-                  <div>Pressure: {weatherData.pressure} hPa</div>
-                </Grid>
-                <Grid className="content" item xs={3}>
-                  <div>
-                    <WbTwilightIcon />
-                    <ArrowDropUpIcon />
-                    {weatherData.sunrise}
-                  </div>
-                </Grid>
-                <Grid className="content" item xs={3}>
-                  <div>
-                    <WbTwilightIcon />
-                    <ArrowDropDownIcon />
-                    {weatherData.sunset}
-                  </div>
-                </Grid>
-              </Grid>
-            </Container>
-          </>
+        {isLoading ? (
+          <div class="containerLoading">
+          <div class="cloud front">
+            <span class="left-front"></span>
+            <span class="right-front"></span>
+          </div>
+          <span class="sun sunshine"></span>
+          <span class="sun"></span>
+          <div class="cloud back">
+            <span class="left-back"></span>
+            <span class="right-back"></span>
+          </div>
+        </div>
         ) : (
           <div></div>
         )}
+        {weatherData ? (
+          <WeatherDetails name={name} weatherData={weatherData} />
+        ) : (
+          <div></div>
+        )}
+        {error ? <div>{error}</div> : <div></div>}
       </Container>
     </div>
   );

@@ -2,8 +2,13 @@ import React from "react";
 import { TextField, Button } from "@mui/material";
 
 function SearchBar({ value, onChange, onSubmit }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit();
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <TextField
         id="outlined-basic"
         label="City Name"
@@ -15,12 +20,13 @@ function SearchBar({ value, onChange, onSubmit }) {
       />
       <Button
         variant="contained"
-        onClick={onSubmit}
+        type="submit"
         style={{ height: "50px", width: "150px" }}
+        disabled={!value.trim()}
       >
         Check
       </Button>
-    </div>
+    </form>
   );
 }
 

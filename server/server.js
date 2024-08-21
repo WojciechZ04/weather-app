@@ -69,6 +69,7 @@ app.post("/api/weather", (req, res) => {
           "Failed to retrieve weather data. Status code:",
           response.statusCode
         );
+        res.status(response.statusCode).json({ error: "Failed to retrieve weather data" });
       }
     })
     .on("error", function (error) {
