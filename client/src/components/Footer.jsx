@@ -4,36 +4,17 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 
 function Footer() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: "10vh",
-        backgroundColor: "primary.main",
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
-        position: "relative",
-        bottom: 0,
-      }}
-    >
+    <Box>
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">
           <Grid item xs={12}>
             <Toolbar disableGutters>
-              <WbSunnyIcon sx={{ display: { md: "flex" }, mr: 1 }} />
+              <WbSunnyIcon />
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="/"
-                sx={{
-                  mr: 2,
-                  display: { md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
               >
                 Weather App
               </Typography>
