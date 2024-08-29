@@ -4,6 +4,7 @@ import { WeatherContext } from "../../WeatherContext";
 import WeatherDetails from "./WeatherDetails";
 import imageMap from "../../assets/imageMap";
 import styled from "styled-components";
+import "./Home.css";
 
 const CenteredContainer = styled.div`
   display: flex;
