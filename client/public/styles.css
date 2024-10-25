@@ -3,14 +3,24 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+#root {
+	min-height: 100vh;
+	display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+footer {
+	height: 20px;
+}
+
 .container {
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 1rem;
 	border: 1rem;
 	text-align: center;
 	display: flex;
-  	justify-content: center; /* Centers the content horizontally */
-  	align-items: center; /* Centers the content vertically */
+  	justify-content: center; 
+  	align-items: center; 
 	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	color: aliceblue;

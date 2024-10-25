@@ -11,14 +11,11 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function WeatherDetails({name, weatherData}) {
   return (
-    <>
-      <Container
-        sx={{ py: "50px" }}
+      <div className="WeatherDetails"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          height: "100vh",
         }}
       >
         <Grid className="container" container spacing={2} sx={{ m: 0 }}>
@@ -72,8 +69,7 @@ function WeatherDetails({name, weatherData}) {
             </div>
           </Grid>
         </Grid>
-      </Container>
-    </>
+      </div>
   );
 }
 

@@ -37,13 +37,15 @@ const Home = () => {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       width: "100%",
-      height: "100vh",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      display: "flex",
     },
   };
 
   return (
-    <div style={styles.container}>
-      <Container sx={{ py: "50px", minHeight: "80vh" }}>
+    <div style={styles.container} className="Home">
         {isLoading ? (
           <LoadingContainer class="containerLoading">
             <div class="cloud front">
@@ -58,15 +60,15 @@ const Home = () => {
             </div>
           </LoadingContainer>
         ) : (
-          <div></div>
+          <></>
         )}
         {weatherData ? (
           <WeatherDetails name={name} weatherData={weatherData} />
         ) : (
-          <div></div>
+          <></>
         )}
-        {error ? <ErrorContainer>{error}</ErrorContainer> : <div></div>}
-      </Container>
+        {error ? <ErrorContainer>{error}</ErrorContainer> : <></>}
+
     </div>
   );
 };
